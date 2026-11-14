@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dress Your Dolly — Royal Castle Fashion</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <!-- Top Header Bar -->
+    <header class="top-bar" aria-label="Game controls">
+      <div class="brand">
+        <span class="brand-crown" aria-hidden="true">👑</span>
+        <div class="brand-text">
+          <h1>Dress Your Dolly</h1>
+          <span class="brand-sub">Royal Castle Studio</span>
+        </div>
+      </div>
+
+      <!-- Scene Switcher -->
+      <div class="scene-switcher" role="group" aria-label="Castle scenes">
+        <button type="button" class="scene-btn active" data-scene="ballroom" id="scene-ballroom">
+          <span class="btn-ico" aria-hidden="true">🏰</span>
+          <span>Ballroom</span>
+        </button>
+        <button type="button" class="scene-btn" data-scene="garden" id="scene-garden">
+          <span class="btn-ico" aria-hidden="true">🌹</span>
+          <span>Garden</span>
+        </button>
+        <button type="button" class="scene-btn" data-scene="balcony" id="scene-balcony">
+          <span class="btn-ico" aria-hidden="true">🌙</span>
+          <span>Balcony</span>
+        </button>
+      </div>
+
+      <!-- Primary Actions -->
+      <div class="top-actions">
+        <button type="button" class="action-btn btn-surprise" id="btn-surprise" title="Surprise Me!">
+          <span class="btn-ico" aria-hidden="true">🎲</span>
+          <span>Surprise Me!</span>
+        </button>
+        <button type="button" class="action-btn btn-reset" id="btn-reset" title="Reset Dolly">
+          <span class="btn-ico" aria-hidden="true">🔄</span>
+          <span>Reset</span>
+        </button>
+        <button type="button" class="action-btn btn-mute" id="btn-mute" aria-pressed="false" title="Toggle Sound">
+          <span class="btn-ico" id="mute-ico" aria-hidden="true">🔊</span>
+          <span id="mute-label">Sound On</span>
+        </button>
+        <button type="button" class="action-btn btn-finish" id="btn-finish">
+          <span class="btn-ico" aria-hidden="true">🌟</span>
+          <span>Finish &amp; Runway!</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="main-stage">
+      <!-- Left / Center Canvas Stage -->
+      <section class="stage-area" aria-label="Dolly stage">
+        <div class="canvas-frame">
+          <canvas id="dolly-canvas" width="800" height="960"></canvas>
+
+          <!-- Floating Judge Banner (Runway Mode Only) -->
+          <div class="runway-hud" id="runway-hud" aria-live="polite" hidden>
+            <div class="judge-banner" id="judge-banner">
+              <div class="judge-badge">Royal Fashion Judge</div>
+              <div class="judge-stars" aria-label="5 out of 5 stars">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+              </div>
+              <div class="judge-quote" id="judge-quote">5/5 Stars! Royal Masterpiece!</div>
+            </div>
+
+            <div class="runway-actions">
+              <button type="button" class="runway-btn btn-photo" id="btn-photo">
+                <span class="btn-ico" aria-hidden="true">📸</span>
+                <span>Take Photo (Download)</span>
+              </button>
+              <button type="button" class="runway-btn btn-keep" id="btn-keep">
+                <span class="btn-ico" aria-hidden="true">👗</span>
+                <span>Keep Dressing</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Toast Notification for Photo Saved -->
+          <div class="stage-toast" id="stage-toast" role="status" hidden>
+            📸 Photo saved!
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Wardrobe Panel -->
+      <aside class="wardrobe-panel" id="wardrobe-panel" aria-label="Wardrobe customization">
+        <nav class="wardrobe-tabs" role="tablist" aria-label="Wardrobe categories">
+          <button type="button" class="tab-btn active" role="tab" aria-selected="true" data-tab="body" id="tab-body">
+            <span class="tab-ico" aria-hidden="true">😊</span>
+            <span class="tab-lbl">Body &amp; Hair</span>
+          </button>
+          <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="outfits" id="tab-outfits">
+            <span class="tab-ico" aria-hidden="true">👗</span>
+            <span class="tab-lbl">Outfits</span>
+          </button>
+          <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="shoes" id="tab-shoes">
+            <span class="tab-ico" aria-hidden="true">👠</span>
+            <span class="tab-lbl">Shoes</span>
+          </button>
+          <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="accessories" id="tab-accessories">
+            <span class="tab-ico" aria-hidden="true">🪄</span>
+            <span class="tab-lbl">Magic &amp; Hero</span>
+          </button>
+          <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="pets" id="tab-pets">
+            <span class="tab-ico" aria-hidden="true">🐾</span>
+            <span class="tab-lbl">Pets</span>
+          </button>
+        </nav>
+
+        <div class="wardrobe-content" id="wardrobe-content" tabindex="0">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="data.js"></script>
+  <script src="renderer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
